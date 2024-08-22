@@ -5,6 +5,7 @@ require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var shopsRouter = require('./routes/shops');
 
 const mongoose = require('mongoose');
 
@@ -20,11 +21,12 @@ app.use(cookieParser());
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(`mongodb+srv://berg-b:${process.env.DB_PASSWORD}@cluster0.j3xh1vt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
+  await mongoose.connect(`mongodb+srv://berg-b:${process.env.DB_PASSWORD}@cluster0.j3xh1vt.mongodb.net/qr-product`);
 }
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/shops', shopsRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
