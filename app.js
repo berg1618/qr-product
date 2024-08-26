@@ -7,6 +7,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var shopsRouter = require('./routes/shops');
 var productsRouter = require('./routes/products');
+var cartsRouter = require('./routes/carts');
 
 const mongoose = require('mongoose');
 
@@ -29,9 +30,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/shops', shopsRouter);
 app.use('/products', productsRouter);
+app.use('/carts', cartsRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Project is listening on port ${port}`)
 })
 
 module.exports = app;
