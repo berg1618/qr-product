@@ -6,6 +6,7 @@ require('dotenv').config()
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var shopsRouter = require('./routes/shops');
+var productsRouter = require('./routes/products');
 
 const mongoose = require('mongoose');
 
@@ -27,6 +28,7 @@ async function main() {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/shops', shopsRouter);
+app.use('/products', productsRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -2,7 +2,6 @@ var express = require('express');
 const Shop = require('../models/Shop');
 var router = express.Router();
 
-/* GET users listing. */
 router.get('/', async function (req, res, next) {
   const result = await Shop.find();
   res.send(result);
@@ -11,7 +10,7 @@ router.get('/', async function (req, res, next) {
 router.post('/', async function (req, res, next) {
   try {
     const result = await Shop.create({
-      name: req.body.name,
+      nome: req.body.nome,
       cnpj: req.body.cnpj,
       endereco: req.body.endereco,
       filial: req.body.filial,
@@ -32,7 +31,7 @@ router.patch('/:id', async function (req, res, next) {
   try {
     const { id } = req.params;
     const result = await Shop.findOneAndUpdate({ _id: id }, {
-      name: req.body.name,
+      nome: req.body.nome,
       cnpj: req.body.cnpj,
       endereco: req.body.endereco,
       filial: req.body.filial,
